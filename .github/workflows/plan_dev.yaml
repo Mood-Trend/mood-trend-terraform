@@ -12,13 +12,13 @@ jobs:
       contents: read
     timeout-minutes: 60
     env:
-      ANDROID_PACKAGE_NAME: ${{ secrets.ANDROID_PACKAGE_NAME_DEV }}
+      PROJECT_ID: ${{ secrets.PROJECT_ID_DEV }}
+      WORKLOAD_IDENTITY_PROVIDER: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER_DEV }}
+      SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT_DEV }}
       BILLING_ACCOUNT: ${{ secrets.BILLING_ACCOUNT_DEV }}
       BUCKET_NAME: ${{ secrets.BUCKET_NAME_DEV }}
+      ANDROID_PACKAGE_NAME: ${{ secrets.ANDROID_PACKAGE_NAME_DEV }}
       IOS_BUNDLE_ID: ${{ secrets.IOS_BUNDLE_ID_DEV }}
-      PROJECT_ID: ${{ secrets.PROJECT_ID_DEV }}
-      SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT_DEV }}
-      WORKLOAD_IDENTITY_PROVIDER: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER_DEV }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
