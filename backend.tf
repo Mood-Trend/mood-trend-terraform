@@ -1,5 +1,5 @@
 terraform {
   backend "gcs" {
-    bucket = "mood-trend-backend"
+    bucket = "mood-trend"
   }
 }
