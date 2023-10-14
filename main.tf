@@ -4,14 +4,15 @@ resource "google_project_service" "default" {
   provider = google-beta.no_user_project_override
   project  = var.project_id
   for_each = toset([
-    "cloudbilling.googleapis.com",
-    "firebase.googleapis.com",
-    "firebaserules.googleapis.com",
-    "firebasestorage.googleapis.com",
+    "cloudbuild.googleapis.com",
     "firestore.googleapis.com",
+    "cloudbilling.googleapis.com",
     "cloudresourcemanager.googleapis.com",
     "serviceusage.googleapis.com",
     "identitytoolkit.googleapis.com",
+    "firebase.googleapis.com",
+    "firebaserules.googleapis.com",
+    "firebasestorage.googleapis.com",
     "storage.googleapis.com",
   ])
   service            = each.key
