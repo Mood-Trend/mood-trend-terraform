@@ -12,20 +12,23 @@ jobs:
       contents: read
     timeout-minutes: 60
     env:
-      ANDROID_PACKAGE_NAME: ${{ secrets.ANDROID_PACKAGE_NAME_DEV }}
+      PROJECT_ID: ${{ secrets.PROJECT_ID_DEV }}
+      PROJECT_NUMBER: ${{ secrets.PROJECT_NUMBER_DEV }}
+      WORKLOAD_IDENTITY_PROVIDER: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER_DEV }}
+      POOL_ID: ${{ secrets.POOL_ID_DEV }}
+      PROVIDER_ID: ${{ secrets.PROVIDER_ID_DEV }}
+      SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT_DEV }}
       BILLING_ACCOUNT: ${{ secrets.BILLING_ACCOUNT_DEV }}
       BUCKET_NAME: ${{ secrets.BUCKET_NAME_DEV }}
+      ANDROID_PACKAGE_NAME: ${{ secrets.ANDROID_PACKAGE_NAME_DEV }}
       IOS_BUNDLE_ID: ${{ secrets.IOS_BUNDLE_ID_DEV }}
-      PROJECT_ID: ${{ secrets.PROJECT_ID_DEV }}
-      SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT_DEV }}
-      WORKLOAD_IDENTITY_PROVIDER: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER_DEV }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v1'
         with:
-          workload_identity_provider: ${{ env.WORKLOAD_IDENTITY_PROVIDER }}
+          workload_identity_provider: 'projects/${{ env.PROJECT_NUMBER }}/locations/global/workloadIdentityPools/${{ env.POOL_ID }}/providers/${{ env.PROVIDER_ID }}'
           service_account: ${{ env.SERVICE_ACCOUNT }}
           create_credentials_file: true
           export_environment_variables: true
