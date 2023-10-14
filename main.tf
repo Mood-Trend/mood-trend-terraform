@@ -8,11 +8,11 @@ resource "google_project_service" "default" {
     "firebase.googleapis.com",
     "firebaserules.googleapis.com",
     "firebasestorage.googleapis.com",
-    "storage.googleapis.com",
     "firestore.googleapis.com",
     "cloudresourcemanager.googleapis.com",
     "serviceusage.googleapis.com",
     "identitytoolkit.googleapis.com",
+    "storage.googleapis.com",
   ])
   service            = each.key
   disable_on_destroy = false
