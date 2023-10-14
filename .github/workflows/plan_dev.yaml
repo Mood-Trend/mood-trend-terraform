@@ -1,0 +1,43 @@
+name: Terraform Plan Development
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+jobs:
+  terraform-plan:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    timeout-minutes: 60
+    env:
+      ANDROID_PACKAGE_NAME: ${{ secrets.ANDROID_PACKAGE_NAME_DEV }}
+      BILLING_ACCOUNT: ${{ secrets.BILLING_ACCOUNT_DEV }}
+      BUCKET_NAME: ${{ secrets.BUCKET_NAME_DEV }}
+      IOS_BUNDLE_ID: ${{ secrets.IOS_BUNDLE_ID_DEV }}
+      PROJECT_ID: ${{ secrets.PROJECT_ID_DEV }}
+      SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT_DEV }}
+      WORKLOAD_IDENTITY_PROVIDER: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER_DEV }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: 'Authenticate to Google Cloud'
+        uses: 'google-github-actions/auth@v1'
+        with:
+          workload_identity_provider: ${{ env.WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ env.SERVICE_ACCOUNT }}
+          create_credentials_file: true
+          export_environment_variables: true
+      - name: Setup Google Cloud SDK
+        uses: google-github-actions/setup-gcloud@v1
+        with:
+          version: '>= 445.0.0'
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+      - name: Check Terraform Format
+        run: terraform fmt -check -diff -recursive
+      - name: Initialize Terraform
+        run: terraform init -input=false -backend-config="bucket=${{ env.BUCKET_NAME }}"
+      - name: Run Terraform Plan
+        run: terraform plan -lock-timeout=120s -var=project_id=${{ env.PROJECT_ID }} -var=project_name=${{ env.PROJECT_ID }} -var=billing_account=${{ env.BILLING_ACCOUNT }} -var=android_package_name=${{ env.ANDROID_PACKAGE_NAME }} -var=ios_bundle_id=${{ env.IOS_BUNDLE_ID }}
