@@ -1,6 +1,9 @@
 ---
 name: Design Doc
+about: Issue 単位でデザインドキュメントを記載してください
 title: '[Design Doc] ここに Issue タイトルを入力してください'
+labels: ''
+assignees: ''
 ---
 
 ## Title
