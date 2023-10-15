@@ -18,6 +18,8 @@ jobs:
       BUCKET_NAME: ${{ secrets.BUCKET_NAME_DEV }}
       ANDROID_PACKAGE_NAME: ${{ secrets.ANDROID_PACKAGE_NAME_DEV }}
       IOS_BUNDLE_ID: ${{ secrets.IOS_BUNDLE_ID_DEV }}
+      GCP_PRINCIPAL_MIDORI: ${{ secrets.GCP_PRINCIPAL_MIDORI }}
+      GCP_PRINCIPAL_SATORU: ${{ secrets.GCP_PRINCIPAL_SATORU }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -39,6 +41,24 @@ jobs:
       - name: Initialize Terraform
         run: terraform init -input=false -backend-config="bucket=${{ env.BUCKET_NAME }}"
       - name: Run Terraform Plan
-        run: terraform plan -lock-timeout=120s -var=project_id=${{ env.PROJECT_ID }} -var=project_name=${{ env.PROJECT_ID }} -var=billing_account=${{ env.BILLING_ACCOUNT }} -var=android_package_name=${{ env.ANDROID_PACKAGE_NAME }} -var=ios_bundle_id=${{ env.IOS_BUNDLE_ID }}
+        run: >
+          terraform plan 
+          -lock-timeout=120s 
+          -var=project_id=${{ env.PROJECT_ID }} 
+          -var=project_name=${{ env.PROJECT_ID }} 
+          -var=billing_account=${{ env.BILLING_ACCOUNT }} 
+          -var=android_package_name=${{ env.ANDROID_PACKAGE_NAME }} 
+          -var=ios_bundle_id=${{ env.IOS_BUNDLE_ID }}
+          -var=gcp_principal_midori=${{ env.GCP_PRINCIPAL_MIDORI }}
+          -var=gcp_principal_satoru=${{ env.GCP_PRINCIPAL_SATORU }}
       - name: Run Terraform Apply
-        run: terraform apply -auto-approve -lock-timeout=120s -var=project_id=${{ env.PROJECT_ID }} -var=project_name=${{ env.PROJECT_ID }} -var=billing_account=${{ env.BILLING_ACCOUNT }} -var=android_package_name=${{ env.ANDROID_PACKAGE_NAME }} -var=ios_bundle_id=${{ env.IOS_BUNDLE_ID }}
+        run: >
+          terraform apply -auto-approve 
+          -lock-timeout=120s 
+          -var=project_id=${{ env.PROJECT_ID }} 
+          -var=project_name=${{ env.PROJECT_ID }} 
+          -var=billing_account=${{ env.BILLING_ACCOUNT }} 
+          -var=android_package_name=${{ env.ANDROID_PACKAGE_NAME }} 
+          -var=ios_bundle_id=${{ env.IOS_BUNDLE_ID }}
+          -var=gcp_principal_midori=${{ env.GCP_PRINCIPAL_MIDORI }}
+          -var=gcp_principal_satoru=${{ env.GCP_PRINCIPAL_SATORU }}

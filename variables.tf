@@ -22,3 +22,11 @@ variable "ios_bundle_id" {
   description = "バンドルID（iOS）"
   type        = string
 }
+
+variable "gcp_principal_midori" {
+  type = string
+}
+
+variable "gcp_principal_satoru" {
+  type = string
+}
