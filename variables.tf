@@ -24,9 +24,9 @@ variable "ios_bundle_id" {
 }
 
 variable "gcp_principal_midori" {
-  type        = string
+  type = string
 }
 
 variable "gcp_principal_satoru" {
-  type        = string
+  type = string
 }
