@@ -29,9 +29,6 @@ resource "google_firebaserules_ruleset" "storage" {
       name    = "storage.rules"
     }
   }
-  depends_on = [
-    google_firebase_storage_bucket.bucket,
-  ]
 }
 resource "google_firebaserules_release" "storage" {
   project      = var.project_id
