@@ -36,7 +36,7 @@ resource "google_firebaserules_release" "primary" {
 }
 resource "google_firebaserules_ruleset" "storage" {
   provider = google-beta
-  project = var.project_id
+  project  = var.project_id
 
   source {
     files {
