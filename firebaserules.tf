@@ -21,7 +21,7 @@ resource "google_firebaserules_release" "firestore" {
 
 # Firebase Storage Security Rules
 resource "google_firebaserules_ruleset" "storage" {
-  project = "my-project-id"
+  project = var.project_id
 
   source {
     files {
