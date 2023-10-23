@@ -14,11 +14,29 @@ resource "google_firestore_database" "default" {
 }
 
 # Firebase Firestore コレクション／ドキュメント定義
-# 今後マスタデータを管理する場合はコメントアウトを外してください
+# 今後マスタデータを管理する場合はコメントアウトを外して適宜編集してください
 # resource "google_firestore_document" "mydoc" {
 #   project     = var.project_id
 #   collection  = "somenewcollection"
 #   document_id = "my-doc-id"
 #   fields      = "{\"something\":{\"mapValue\":{\"fields\":{\"akey\":{\"stringValue\":\"avalue\"}}}}}"
 #   depends_on  = [google_firestore_database.default]
+# }
+
+# Firebase Firestore Index
+# 今後書くコレクションのインデックスを定義する場合はコメントアウトを外して適宜編集してください
+# resource "google_firestore_index" "user-index" {
+#   project = var.project_id
+#   collection = "user"
+#   api_scope = "DATASTORE_MODE_API"
+
+#   fields {
+#     field_path = "name"
+#     order      = "ASCENDING"
+#   }
+
+#   fields {
+#     field_path = "description"
+#     order      = "DESCENDING"
+#   }
 # }
