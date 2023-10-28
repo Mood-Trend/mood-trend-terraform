@@ -10,7 +10,7 @@ service cloud.firestore {
       return hasAuth() && request.auth.uid == uid;
     }
 
-    match /user/{uid} {
+    match /users/{uid} {
       allow get: if isOwner(uid);
       allow list: if false;
       allow create: if false;
