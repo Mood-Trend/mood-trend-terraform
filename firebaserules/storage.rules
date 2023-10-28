@@ -10,7 +10,7 @@ service firebase.storage {
       return hasAuth() && request.auth.uid == uid;
     }
 
-    match /user/{uid}/{allPaths=**} {
+    match /users/{uid}/{allPaths=**} {
       allow get: if isOwner(uid);
       allow list: if isOwner(uid);
       allow create: if isOwner(uid);
