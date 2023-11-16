@@ -19,7 +19,7 @@ service cloud.firestore {
 
       match /conf/{confId} {
         allow get: if isOwner(uid);
-        allow list: if false;
+        allow list: if isOwner(uid);
         allow create: if isOwner(uid);
         allow update: if isOwner(uid);
         allow delete: if isOwner(uid);
@@ -27,7 +27,7 @@ service cloud.firestore {
 
       match /mood_worksheet/{worksheetId} {
         allow get: if isOwner(uid);
-        allow list: if false;
+        allow list: if isOwner(uid);
         allow create: if isOwner(uid);
         allow update: if isOwner(uid);
         allow delete: if isOwner(uid);
@@ -35,7 +35,7 @@ service cloud.firestore {
 
       match /mood_points/{pointsId} {
         allow get: if isOwner(uid);
-        allow list: if false;
+        allow list: if isOwner(uid);
         allow create: if isOwner(uid);
         allow update: if isOwner(uid);
         allow delete: if isOwner(uid);
