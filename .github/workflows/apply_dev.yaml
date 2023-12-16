@@ -20,6 +20,7 @@ jobs:
       IOS_BUNDLE_ID: ${{ secrets.IOS_BUNDLE_ID_DEV }}
       GCP_PRINCIPAL_MIDORI: ${{ secrets.GCP_PRINCIPAL_MIDORI }}
       GCP_PRINCIPAL_SATORU: ${{ secrets.GCP_PRINCIPAL_SATORU }}
+      GCP_PRINCIPAL_COBO: ${{ secrets.GCP_PRINCIPAL_COBO }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -51,6 +52,7 @@ jobs:
           -var=ios_bundle_id=${{ env.IOS_BUNDLE_ID }}
           -var=gcp_principal_midori=${{ env.GCP_PRINCIPAL_MIDORI }}
           -var=gcp_principal_satoru=${{ env.GCP_PRINCIPAL_SATORU }}
+          -var=gcp_principal_cobo=${{ env.GCP_PRINCIPAL_COBO }}
       - name: Run Terraform Apply
         run: >
           terraform apply -auto-approve 
@@ -62,3 +64,4 @@ jobs:
           -var=ios_bundle_id=${{ env.IOS_BUNDLE_ID }}
           -var=gcp_principal_midori=${{ env.GCP_PRINCIPAL_MIDORI }}
           -var=gcp_principal_satoru=${{ env.GCP_PRINCIPAL_SATORU }}
+          -var=gcp_principal_cobo=${{ env.GCP_PRINCIPAL_COBO }}
