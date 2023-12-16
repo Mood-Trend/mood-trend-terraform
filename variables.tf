@@ -30,3 +30,7 @@ variable "gcp_principal_midori" {
 variable "gcp_principal_satoru" {
   type = string
 }
+
+variable "gcp_principal_cobo" {
+  type = string
+}
