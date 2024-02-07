@@ -21,6 +21,7 @@ jobs:
       GCP_PRINCIPAL_MIDORI: ${{ secrets.GCP_PRINCIPAL_MIDORI }}
       GCP_PRINCIPAL_SATORU: ${{ secrets.GCP_PRINCIPAL_SATORU }}
       GCP_PRINCIPAL_COBO: ${{ secrets.GCP_PRINCIPAL_COBO }}
+      FIREBASE_ADMINSDK_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_ADMINSDK_SERVICE_ACCOUNT_DEV }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -53,6 +54,7 @@ jobs:
           -var=gcp_principal_midori=${{ env.GCP_PRINCIPAL_MIDORI }}
           -var=gcp_principal_satoru=${{ env.GCP_PRINCIPAL_SATORU }}
           -var=gcp_principal_cobo=${{ env.GCP_PRINCIPAL_COBO }}
+          -var=firebase_adminsdk_service_account=${{ env.FIREBASE_ADMINSDK_SERVICE_ACCOUNT }}
       - name: Run Terraform Apply
         run: >
           terraform apply -auto-approve 
@@ -65,3 +67,4 @@ jobs:
           -var=gcp_principal_midori=${{ env.GCP_PRINCIPAL_MIDORI }}
           -var=gcp_principal_satoru=${{ env.GCP_PRINCIPAL_SATORU }}
           -var=gcp_principal_cobo=${{ env.GCP_PRINCIPAL_COBO }}
+          -var=firebase_adminsdk_service_account=${{ env.FIREBASE_ADMINSDK_SERVICE_ACCOUNT }}

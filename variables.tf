@@ -34,3 +34,7 @@ variable "gcp_principal_satoru" {
 variable "gcp_principal_cobo" {
   type = string
 }
+
+variable "firebase_adminsdk_service_account" {
+  type = string
+}
