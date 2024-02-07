@@ -35,6 +35,6 @@ variable "gcp_principal_cobo" {
   type = string
 }
 
-variable "firebase-adminsdk-service-account" {
+variable "firebase_adminsdk_service_account" {
   type = string
 }
