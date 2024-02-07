@@ -40,23 +40,8 @@ import {
 }
 
 import {
-  id = "${var.project_id} roles/firebase.sdkAdminServiceAgent serviceAccount:firebase-adminsdk-u21fw@${var.project_id}.iam.gserviceaccount.com"
-  to = google_project_iam_member.firebase_adminsdk_u21fw_firebase_sdkAdminServiceAgent
-}
-
-import {
-  id = "${var.project_id} roles/firebaserules.admin serviceAccount:github-actions-terraform@${var.project_id}.iam.gserviceaccount.com"
-  to = google_project_iam_member.github_actions_terraform_firebaserules_admin
-}
-
-import {
   id = "${var.project_id} roles/iam.securityReviewer serviceAccount:snyk-scan@${var.project_id}.iam.gserviceaccount.com"
   to = google_project_iam_member.snyk_scan_iam_securityReviewer
-}
-
-import {
-  id = "${var.project_id} roles/iam.serviceAccountTokenCreator serviceAccount:firebase-adminsdk-u21fw@${var.project_id}.iam.gserviceaccount.com"
-  to = google_project_iam_member.firebase_adminsdk_u21fw_iam_serviceAccountTokenCreator
 }
 
 import {
