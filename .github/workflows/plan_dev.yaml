@@ -33,12 +33,8 @@ jobs:
           service_account: ${{ env.SERVICE_ACCOUNT }}
           create_credentials_file: true
           export_environment_variables: true
-      - name: Setup Google Cloud SDK
-        uses: google-github-actions/setup-gcloud@v1
-        with:
-          version: '>= 445.0.0'
       - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v1
+        uses: hashicorp/setup-terraform@v2
       - name: Check Terraform Format
         run: terraform fmt -check -diff -recursive
       - name: Initialize Terraform
