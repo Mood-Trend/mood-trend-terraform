@@ -19,7 +19,25 @@ locals {
       document_id = "is_show_review_menu"
       fields = jsonencode({
         "value" = {
-          "booleanValue" = "false"
+          "booleanValue" = false
+        },
+      })
+    },
+    {
+      collection  = "app_confs"
+      document_id = "review_url_ios"
+      fields = jsonencode({
+        "value" = {
+          "stringValue" = " "
+        },
+      })
+    },
+    {
+      collection  = "app_confs"
+      document_id = "review_url_android"
+      fields = jsonencode({
+        "value" = {
+          "stringValue" = " "
         },
       })
     },
