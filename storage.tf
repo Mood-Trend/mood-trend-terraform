@@ -41,12 +41,14 @@ resource "google_firebaserules_ruleset" "storage" {
 
 resource "google_firebaserules_release" "default-bucket" {
   provider     = google-beta
-  name         = "firebase.storage/${google_app_engine_application.default.default_bucket}"
+  name         = "firebase.storage"
   ruleset_name = "projects/${var.project_id}/rulesets/${google_firebaserules_ruleset.storage.name}"
   project      = var.project_id
 
   lifecycle {
-    create_before_destroy = true
+    replace_triggered_by = [
+      google_firebaserules_ruleset.storage
+    ]
   }
 
   depends_on = [
