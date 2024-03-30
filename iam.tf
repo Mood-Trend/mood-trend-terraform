@@ -64,12 +64,6 @@ resource "google_project_iam_member" "github_actions_terraform_firebase_admin" {
   member  = "serviceAccount:github-actions-terraform@${var.project_id}.iam.gserviceaccount.com"
 }
 
-resource "google_project_iam_member" "firebase_adminsdk_u21fw_firebase_sdkAdminServiceAgent" {
-  project = var.project_id
-  role    = "roles/firebase.sdkAdminServiceAgent"
-  member  = "serviceAccount:${var.firebase_adminsdk_service_account}@${var.project_id}.iam.gserviceaccount.com"
-}
-
 resource "google_project_iam_member" "github_actions_terraform_firebaserules_admin" {
   project = var.project_id
   role    = "roles/firebaserules.admin"
@@ -80,12 +74,6 @@ resource "google_project_iam_member" "snyk_scan_iam_securityReviewer" {
   project = var.project_id
   role    = "roles/iam.securityReviewer"
   member  = "serviceAccount:snyk-scan@${var.project_id}.iam.gserviceaccount.com"
-}
-
-resource "google_project_iam_member" "firebase_adminsdk_u21fw_iam_serviceAccountTokenCreator" {
-  project = var.project_id
-  role    = "roles/iam.serviceAccountTokenCreator"
-  member  = "serviceAccount:${var.firebase_adminsdk_service_account}@${var.project_id}.iam.gserviceaccount.com"
 }
 
 resource "google_project_iam_member" "cloud_scheduler_snyk_scan_iam_serviceAccountUser" {
