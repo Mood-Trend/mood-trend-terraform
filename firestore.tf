@@ -23,7 +23,7 @@ resource "google_firestore_document" "docs" {
   fields      = each.value.fields
 
   depends_on = [
-    google_firestore_database.firestore,
+    google_firestore_database.default,
   ]
 }
 
