@@ -23,5 +23,23 @@ locals {
         },
       })
     },
+    {
+      collection  = "app_confs"
+      document_id = "review_url_ios"
+      fields = jsonencode({
+        "value" = {
+          "stringValue" = " "
+        },
+      })
+    },
+    {
+      collection  = "app_confs"
+      document_id = "review_url_android"
+      fields = jsonencode({
+        "value" = {
+          "stringValue" = " "
+        },
+      })
+    },
   ]
 }
