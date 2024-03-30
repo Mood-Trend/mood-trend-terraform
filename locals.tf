@@ -11,4 +11,17 @@ locals {
 
   # google_firebaserules_release.storage.name
   firebaserules_release_storage_name = "firebase.storage"
+
+  # Firestore master data
+  docs = [
+    {
+      collection  = "app_confs"
+      document_id = "is_show_review_menu"
+      fields = jsonencode({
+        "value" = {
+          "booleanValue" = "false"
+        },
+      })
+    },
+  ]
 }
