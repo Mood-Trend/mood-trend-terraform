@@ -41,5 +41,13 @@ service cloud.firestore {
         allow delete: if isOwner(uid);
       }
     }
+
+    match /app_confs/{appConfId} {
+      allow get: if hasAuth();
+      allow list: if hasAuth();
+      allow create: if hasAuth();
+      allow update: if hasAuth();
+      allow delete: if hasAuth();
+    }
   }
 }
