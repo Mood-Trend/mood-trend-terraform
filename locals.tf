@@ -19,7 +19,7 @@ locals {
       document_id = "is_show_review_menu"
       fields = jsonencode({
         "value" = {
-          "booleanValue" = "false"
+          "booleanValue" = false
         },
       })
     },
