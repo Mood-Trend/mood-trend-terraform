@@ -57,14 +57,6 @@ flowchart TD
     Tag[Push tag v.*] --> Prd[Deploy to Prd env]
 ```
 
-## Application Architecture
-
-![application-architecture](/images/aplication_architecture.png)
-
-### Click here for details
-
-- [Flutter × Firebase におけるモダンなアプリケーションアーキテクチャへの挑戦](https://zenn.dev/nozomi_cobo/articles/flutter-firebase-modern-architecture)
-
 ## Other Repositories
 
 - [mood-trend-flutter](https://github.com/Mood-Trend/mood-trend-flutter)
