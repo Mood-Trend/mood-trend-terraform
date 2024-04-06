@@ -45,6 +45,7 @@ app-prod|iOS / Android|[mood-trend-prod](https://console.firebase.google.com/u/0
 
 ## CI/CD Pipeline
 
+```mermaid
 flowchart TD
     PR[Pull Request] --> CI{Auto check & test}
     CI -->|OK| Review{Code review}
@@ -54,6 +55,7 @@ flowchart TD
     Review -->|Change Request| Fix
     Merge --> Dev[Deploy to Dev env]
     Tag[Push tag v.*] --> Prd[Deploy to Prd env]
+```
 
 ## Application Architecture
 
